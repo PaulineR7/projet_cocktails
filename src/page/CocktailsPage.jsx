@@ -4,14 +4,13 @@ function CocktailsPage () {
     const [cocktails , setCocktails] = useState(null);
 
     if(!cocktails) {
-        fetch("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=")
-        .then((response) => {
-            return response.json()
-        })
-        .then((json) => {
-            console.log(json.drinks)
-            setCocktails(json.drinks)
-        })
+
+        (async () => {
+        const fetchCoktails = await fetch("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=")
+        const jsonCocktails = await fetchCoktails.json()
+        setCocktails(jsonCocktails.drinks)
+        })();
+        
     }
 
     return(
