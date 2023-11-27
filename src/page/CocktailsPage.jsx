@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useState } from "react";
 
 function CocktailsPage () {
@@ -22,6 +23,7 @@ function CocktailsPage () {
                         <article>
                             <h2>{cocktail.strDrink}</h2>
                             <img src={cocktail.strDrinkThumb} alt="" />
+                            <Link to={`/detailpage/${cocktail.idDrink}`}>Voir plus de détails</Link>
                         </article>
                     )
                 })}
